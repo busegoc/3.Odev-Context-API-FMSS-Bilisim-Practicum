@@ -18,6 +18,8 @@ console.log(selectedCity);
         ) : (
       <div className="selectoption">
 
+      
+
         <select  className="form-select" aria-label="Default select example" value={selectedCity} onChange={handleCityChange}>
           <option  value={selectedCity.id} key={selectedCity.id}>{selectedCity.name}</option>
           {cities.map((city) => (
