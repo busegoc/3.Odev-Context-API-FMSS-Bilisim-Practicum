@@ -6,6 +6,7 @@ export const WeatherContext = createContext();
 
 const WeatherProvider = ({ children }) => {
     const key = process.env.REACT_APP_WEATHER_API_KEY;
+    const baseURL = process.env.REACT_APP_BASE_URL
     const [weather, setWeather] = useState([]);
     const [location, setLocation] = useState(null);
     const [latitude, setLatitude] = useState();
@@ -36,7 +37,7 @@ const WeatherProvider = ({ children }) => {
               setLongitude(selectedLongitude);
  
             try {
-                const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${selectedLatitude}&lon=${selectedLongitude}&units=metric&appid=${key}&lang=tr`);
+                const { data } = await axios.get(`${baseURL}/forecast?lat=${selectedLatitude}&lon=${selectedLongitude}&units=metric&appid=${key}&lang=tr`);
                 setWeather(data)
             }
             catch {
