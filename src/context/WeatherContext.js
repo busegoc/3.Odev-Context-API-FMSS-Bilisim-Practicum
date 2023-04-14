@@ -36,7 +36,7 @@ const WeatherProvider = ({ children }) => {
               setLongitude(selectedLongitude);
  
             try {
-                const { data } = await axios.get(`http://api.openweathermap.org/data/2.5/forecast?lat=${selectedLatitude}&lon=${selectedLongitude}&units=metric&appid=${key}&lang=tr`);
+                const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${selectedLatitude}&lon=${selectedLongitude}&units=metric&appid=${key}&lang=tr`);
                 setWeather(data)
             }
             catch {
