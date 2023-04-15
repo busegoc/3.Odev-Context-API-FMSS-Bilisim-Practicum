@@ -6,7 +6,7 @@ export const WeatherContext = createContext();
 
 const WeatherProvider = ({ children }) => {
     const key = process.env.REACT_APP_WEATHER_API_KEY;
-    const baseURL = process.env.REACT_APP_BASE_URL
+    const baseURL =process.env.REACT_APP_BASE_URL;
     const [weather, setWeather] = useState([]);
     const [location, setLocation] = useState(null);
     const [latitude, setLatitude] = useState();
@@ -16,7 +16,7 @@ const WeatherProvider = ({ children }) => {
     useEffect(() => {
         setCities(allCities)
     }, []);
-
+console.log(baseURL);
     useEffect(() => {
         const getData = async () => {
             const defaultLatitude = 39.653298;
@@ -37,7 +37,7 @@ const WeatherProvider = ({ children }) => {
               setLongitude(selectedLongitude);
  
             try {
-                const { data } = await axios.get(`${baseURL}/forecast?lat=${selectedLatitude}&lon=${selectedLongitude}&units=metric&appid=${key}&lang=tr`);
+                const { data } = await axios.get(`${baseURL}2.5/forecast?lat=${selectedLatitude}&lon=${selectedLongitude}&units=metric&appid=${key}&lang=tr`);
                 setWeather(data)
             }
             catch {
